@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace(); // Print de fout naar de console voor debugging
-            System.err.println("Fout bij het laden van de FXML.");
+            System.err.println("Fout bij het laden van de FXML 1.");
         }
     }
 
