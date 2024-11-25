@@ -13,4 +13,6 @@ module com.example.microfit {
 
     opens com.example.microfit to javafx.fxml;
     exports com.example.microfit;
+    exports com.example.microfit.LoginController;
+    opens com.example.microfit.LoginController to javafx.fxml;
 }
