@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #f1f1f1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #f1f1f1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.InstellingenController">
 
    <!-- Hoofd container (VBox) voor layout -->
    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
@@ -13,7 +13,7 @@
       <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 28px; -fx-fill: #333333;" text="Instellingen" />
 
       <!-- Knop voor Verbinden van een Nieuwe MicroFit -->
-      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #7289da; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Nieuwe Microfit Verbinden" />
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #7289da; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Nieuwe Microfit Verbinden" fx:id="nieuweMicrofitButton" />
 
       <!-- Text voor Oude Wachtwoord -->
       <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #333333;" text="Oude wachtwoord" />
@@ -28,13 +28,13 @@
       <PasswordField layoutX="36.0" layoutY="326.0" prefWidth="250" style="-fx-background-color: #ffffff; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 5px;" text="dsfsdafcsdcf" />
 
       <!-- Knop voor het Veranderen van het Wachtwoord -->
-      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #2b9c3f; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Wachtwoord veranderen" />
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #2b9c3f; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Wachtwoord veranderen" fx:id="wachtwoordVeranderenButton" />
 
       <!-- Knop voor Account Verwijderen -->
-      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Account Verwijderen" />
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Account Verwijderen" fx:id="accountVerwijderenButton" />
 
       <!-- Terug Knop -->
-      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #4a4a4a; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Terug" />
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #4a4a4a; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Terug" fx:id="terugButton"/>
    </VBox>
 
 </AnchorPane>
