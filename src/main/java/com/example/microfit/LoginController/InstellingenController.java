@@ -19,6 +19,8 @@ public class InstellingenController {
     private Button accountVerwijderenButton;  // "Account Verwijderen"
     @FXML
     private Button terugButton;   // "Terug"
+    @FXML
+    private Button uitlogButton;  // "Uitloggen" knop
 
     // Method to handle "Nieuwe Microfit Verbinden" button click
     @FXML
@@ -68,6 +70,22 @@ public class InstellingenController {
             // Get current stage and set the new scene
             Stage stage = (Stage) terugButton.getScene().getWindow();
             stage.setScene(new Scene(newPage));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Method to handle "Uitloggen" button click
+    @FXML
+    private void handleUitlogButton() {
+        try {
+            // Load the login page (Login_Pagina1.fxml)
+            AnchorPane loginPage = FXMLLoader.load(getClass().getResource("/com/example/microfit/Login_Pagina1.fxml"));
+
+            // Get current stage and set the new scene (Login page)
+            Stage stage = (Stage) uitlogButton.getScene().getWindow();
+            stage.setScene(new Scene(loginPage));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
