@@ -1,94 +1,78 @@
 package com.example.microfit.LoginController;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
 import javafx.scene.shape.Circle;
-import javafx.util.Duration;
+import javafx.scene.text.Text;
 
 public class Timercontroller {
 
-    @FXML private Text timerMinutes;  // Voor de timer in minuten
-    @FXML private Circle timerCircle;  // De cirkel om de voortgang te tonen
-    @FXML private Button startButton;  // Start knop
-    @FXML private Button resetButton;  // Reset knop
+    @FXML
+    private Button startButton;
+    @FXML
+    private Button resetButton;
+    @FXML
+    private Text timerMinutes;
+    @FXML
+    private Circle timerCircle;
 
-    private Timeline timeline;
-    private int minutes = 30;  // Starttijd in minuten
-    private boolean isRunning = false;  // Voor het starten en stoppen van de timer
+    private int totalSeconds = 1800; // 30 minuten in seconden
+    private int currentSeconds = totalSeconds;
+
+    private AnimationTimer timer;
 
     @FXML
     public void initialize() {
-        resetButton.setDisable(true);  // Start met de reset knop uitgeschakeld
-
-        startButton.setOnAction(e -> {
-            if (isRunning) {
-                stopTimer();
-            } else {
-                startTimer();
-            }
-        });
-
-        resetButton.setOnAction(e -> resetTimer());
-    }
-
-    // Timer starten
-    private void startTimer() {
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            minutes--;
-            if (minutes <= 0) {
-                stopTimer();
-            }
-            updateTimerDisplay();
-        }));
-
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-
-        isRunning = true;
-        startButton.setText("Stop");
-        resetButton.setDisable(false);
-    }
-
-    // Timer stoppen
-    private void stopTimer() {
-        if (timeline != null) {
-            timeline.stop();
-        }
-        isRunning = false;
-        startButton.setText("Start");
-    }
-
-    // Timer resetten
-    private void resetTimer() {
-        stopTimer();
-        minutes = 30;
         updateTimerDisplay();
-        resetButton.setDisable(true);
+        updateCircle();
     }
 
-    // Timer update op scherm
-    private void updateTimerDisplay() {
-        timerMinutes.setText(String.format("%02d", minutes));
-        // Optionaal: Cirkel op basis van tijd vullen (bijv. met een draaiende voortgangsbalk)
-        double progress = 1.0 - (minutes / 30.0);
-        timerCircle.setStrokeWidth(progress * 15);
-    }
-
-    // Methodes die gekoppeld zijn aan de knoppen in de FXML:
     @FXML
-    public void onStartButtonClicked() {
-        if (isRunning) {
-            stopTimer();
-        } else {
-            startTimer();
+    private void onStartButtonClicked() {
+        if (timer != null) {
+            timer.stop(); // Stop een bestaande timer
         }
+
+        timer = new AnimationTimer() {
+            private long lastUpdate = 0;
+
+            @Override
+            public void handle(long now) {
+                if (lastUpdate == 0 || now - lastUpdate >= 1_000_000_000) { // 1 seconde
+                    if (currentSeconds > 0) {
+                        currentSeconds--;
+                        updateTimerDisplay();
+                        updateCircle();
+                    } else {
+                        timer.stop();
+                        System.out.println("Timer voltooid!");
+                    }
+                    lastUpdate = now;
+                }
+            }
+        };
+        timer.start();
     }
 
     @FXML
-    public void onResetButtonClicked() {
-        resetTimer();
+    private void onResetButtonClicked() {
+        if (timer != null) {
+            timer.stop();
+        }
+        currentSeconds = totalSeconds;
+        updateTimerDisplay();
+        updateCircle();
+    }
+
+    private void updateTimerDisplay() {
+        int minutes = currentSeconds / 60;
+        int seconds = currentSeconds % 60;
+        timerMinutes.setText(String.format("%02d:%02d", minutes, seconds));
+    }
+
+    private void updateCircle() {
+        double progress = (double) currentSeconds / totalSeconds;
+        timerCircle.setStrokeDashOffset(-progress * 628.0); // 2 * Math.PI * 100 (radius van cirkel)
     }
 }
