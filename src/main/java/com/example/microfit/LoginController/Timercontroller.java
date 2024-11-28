@@ -1,18 +1,19 @@
 package com.example.microfit.LoginController;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
 import javafx.scene.shape.Circle;
-import javafx.util.Duration;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Timercontroller {
 
     @FXML
-    private Text timerMinutes; // Het minuten-display in de cirkel
+    private Circle timerCircle;
 
     @FXML
     private Button startButton;
@@ -21,55 +22,61 @@ public class Timercontroller {
     private Button resetButton;
 
     @FXML
-    private Circle timerCircle;
+    private Button settingsButton; // De knop voor instellingen
 
-    private Timeline timeline;
-    private int timeInSeconds = 1800; // 30 minuten standaard
+    private boolean isRunning = false;
+    private int timeRemaining = 30; // In minuten
 
     @FXML
-    public void initialize() {
-        // Zorg dat de tekst correct weergegeven wordt bij het laden
-        updateTimerDisplay();
+    private void initialize() {
+        resetTimer();
     }
 
     @FXML
     private void onStartButtonClicked() {
-        if (timeline == null || timeline.getStatus() != Animation.Status.RUNNING) {
+        if (isRunning) {
+            stopTimer();
+        } else {
             startTimer();
         }
     }
 
     @FXML
     private void onResetButtonClicked() {
-        stopTimer();
-        timeInSeconds = 1800; // Reset naar 30 minuten
-        updateTimerDisplay();
+        resetTimer();
     }
 
     private void startTimer() {
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            timeInSeconds--;
-            updateTimerDisplay();
-
-            if (timeInSeconds <= 0) {
-                stopTimer();
-            }
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
+        isRunning = true;
+        startButton.setText("Stop");
+        // Hier kun je je timer-logica implementeren
     }
 
     private void stopTimer() {
-        if (timeline != null) {
-            timeline.stop();
-        }
+        isRunning = false;
+        startButton.setText("Start");
+        // Timer-stoplogica
     }
 
-    private void updateTimerDisplay() {
-        int minutes = timeInSeconds / 60;
-        int seconds = timeInSeconds % 60;
+    private void resetTimer() {
+        stopTimer();
+        timeRemaining = 30; // Reset naar standaardwaarde
+        // Update weergave als je een timer-indicatie hebt
+    }
 
-        // Werk de minuten bij en toon een passend formaat
-        timerMinutes.setText(String.format("%02d:%02d", minutes, seconds));
+    @FXML
+    private void goToSettings() {
+        try {
+            // Laad de Instellingen-pagina
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/microfit/Instellingen_Pagina6.fxml"));            Parent root = loader.load();
+
+            // Verkrijg de huidige stage (venster)
+            Stage stage = (Stage) settingsButton.getScene().getWindow();
+
+            // Toon de Instellingen-pagina in het huidige venster
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
