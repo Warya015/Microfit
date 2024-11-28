@@ -4,34 +4,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #f1f1f1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.InstellingenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #1e1e2f;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.InstellingenController">
 
    <!-- Hoofd container (VBox) voor layout -->
    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
 
       <!-- Titel van de Instellingen Pagina -->
-      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 28px; -fx-fill: #333333;" text="Instellingen" />
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 32px; -fx-fill: #ffffff;" text="Instellingen" />
 
       <!-- Knop voor Verbinden van een Nieuwe MicroFit -->
       <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #7289da; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Nieuwe Microfit Verbinden" fx:id="nieuweMicrofitButton" onAction="#handleNieuweMicrofitButton"/>
 
       <!-- Text voor Oude Wachtwoord -->
-      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #333333;" text="Oude wachtwoord" />
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #b9bbbe;" text="Oude wachtwoord" />
 
       <!-- Wachtwoordveld voor Oude Wachtwoord -->
-      <PasswordField layoutX="36.0" layoutY="246.0" prefWidth="250" style="-fx-background-color: #ffffff; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 5px;" text="sadas" />
+      <PasswordField layoutX="36.0" layoutY="246.0" prefWidth="250" style="-fx-background-color: #2b2d42; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 5px; -fx-text-fill: white;" text="sadas" />
 
       <!-- Text voor Nieuw Wachtwoord -->
-      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #333333;" text="Nieuw wachtwoord" />
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #b9bbbe;" text="Nieuw wachtwoord" />
 
       <!-- Wachtwoordveld voor Nieuw Wachtwoord -->
-      <PasswordField layoutX="36.0" layoutY="326.0" prefWidth="250" style="-fx-background-color: #ffffff; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 5px;" text="dsfsdafcsdcf" />
+      <PasswordField layoutX="36.0" layoutY="326.0" prefWidth="250" style="-fx-background-color: #2b2d42; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 5px; -fx-text-fill: white;" text="dsfsdafcsdcf" />
 
       <!-- Knop voor het Veranderen van het Wachtwoord -->
       <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #2b9c3f; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Wachtwoord veranderen" fx:id="wachtwoordVeranderenButton" onAction="#handleWachtwoordVeranderenButton"/>
 
       <!-- Knop voor Account Verwijderen -->
-      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Account Verwijderen" fx:id="accountVerwijderenButton" onAction="#handleAccountVerwijderenButton"/>
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #e0245e; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Account Verwijderen" fx:id="accountVerwijderenButton" onAction="#handleAccountVerwijderenButton"/>
 
       <!-- Terug Knop -->
       <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #4a4a4a; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Terug" fx:id="terugButton" onAction="#handleTerugButton" />
