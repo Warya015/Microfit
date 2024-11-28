@@ -3,29 +3,29 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #f1f1f1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #1e1e2f;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.InstellingenController">
 
    <!-- Hoofd container (VBox) voor layout -->
    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
 
       <!-- Titel van de Account Verwijderen Pagina -->
-      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 28px; -fx-fill: #333333;" text="Account Verwijderen" />
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 32px; -fx-fill: #ffffff;" text="Account Verwijderen" />
 
       <!-- Informatie over het Verwijderen van Account -->
-      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #333333;" text="Als je je account verwijdert, worden al je gegevens uit onze database verwijderd. Dit kan niet ongedaan worden gemaakt." wrappingWidth="300" />
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #b9bbbe;" text="Als je je account verwijdert, worden al je gegevens uit onze database verwijderd. Dit kan niet ongedaan worden gemaakt." wrappingWidth="300" />
 
       <!-- Waarschuwingsbericht -->
       <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 12px; -fx-fill: #ff0000;" text="Wees voorzichtig, deze actie kan niet worden teruggedraaid!" />
 
       <!-- Gebruikersnaam Invoer voor Bevestigen -->
-      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #333333;" text="Typ je gebruikersnaam om dit te bevestigen." />
-      <TextArea prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: #ffffff; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 5px;" />
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #b9bbbe;" text="Typ je gebruikersnaam om dit te bevestigen." />
+      <TextArea prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: #2b2d42; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 5px; -fx-text-fill: white;" />
 
       <!-- Knop voor het Verwijderen van het Account -->
-      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Account Verwijderen" />
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #e0245e; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Account Verwijderen" />
 
       <!-- Terug Knop -->
-      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #4a4a4a; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Terug" />
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #4a4a4a; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Terug" fx:id="terugButton" onAction="#handleTerugButton"/>
 
    </VBox>
 
