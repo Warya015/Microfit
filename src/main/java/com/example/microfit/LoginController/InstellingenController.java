@@ -25,7 +25,7 @@ public class InstellingenController {
     private void handleNieuweMicrofitButton() {
         try {
             // Load the next FXML page (Microfitverbinden_Pagina2.fxml)
-            AnchorPane newPage = FXMLLoader.load(getClass().getResource("Microfitverbinden_Pagina2.fxml"));
+            AnchorPane newPage = FXMLLoader.load(getClass().getResource("/com/example/microfit/Microfitverbinden_Pagina2.fxml"));
 
             // Get current stage and set the new scene
             Stage stage = (Stage) nieuweMicrofitButton.getScene().getWindow();
@@ -47,7 +47,7 @@ public class InstellingenController {
     private void handleAccountVerwijderenButton() {
         try {
             // Load the next FXML page (Verwijderacc_Pagina7.fxml)
-            AnchorPane newPage = FXMLLoader.load(getClass().getResource("Verwijderacc_Pagina7.fxml"));
+            AnchorPane newPage = FXMLLoader.load(getClass().getResource("/com/example/microfit/Verwijderacc_Pagina7.fxml"));
 
             // Get current stage and set the new scene
             Stage stage = (Stage) accountVerwijderenButton.getScene().getWindow();
@@ -63,7 +63,7 @@ public class InstellingenController {
     private void handleTerugButton() {
         try {
             // Load the next FXML page (Timer_Pagina3.fxml)
-            AnchorPane newPage = FXMLLoader.load(getClass().getResource("Timer_Pagina3.fxml"));
+            AnchorPane newPage = FXMLLoader.load(getClass().getResource("/com/example/microfit/Timer_Pagina3.fxml"));
 
             // Get current stage and set the new scene
             Stage stage = (Stage) terugButton.getScene().getWindow();
