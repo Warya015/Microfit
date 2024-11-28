@@ -6,11 +6,10 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Pos?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.Timercontroller" style="-fx-background-color: #1e1e2f;">
+<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.Timercontroller" style="-fx-background-color: #1e1e2f;" prefHeight="600.0" prefWidth="335.0">
    <children>
       <!-- Hoofdcontainer: VBox met ruimte en centering instellingen -->
       <VBox spacing="20" alignment="CENTER" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10">
-
          <!-- Logo -->
          <Text text="MicroFit" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 40px; -fx-fill: #ffffff;" />
 
@@ -24,24 +23,23 @@
             <!-- Tijd -->
             <VBox alignment="CENTER" spacing="5">
                <Text fx:id="timerMinutes" text="30" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 64px; -fx-fill: #ffffff;" />
-               <Text text="min" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-fill: #b9bbbe;" />
+               <Text text="min" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 20px; -fx-fill: #ffffff;" />
             </VBox>
          </StackPane>
 
-         <!-- Knoppen: Start en Reset -->
-         <HBox spacing="20" alignment="CENTER">
-            <Button fx:id="startButton" text="Start" style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="100" onAction="#onStartButtonClicked" />
-            <Button fx:id="resetButton" text="Reset" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="100" onAction="#onResetButtonClicked" />
+         <!-- Waarschuwingstekst -->
+         <Text fx:id="warningText" text="Object te dichtbij!" visible="false" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: red;" />
+
+         <!-- Knoppen -->
+         <HBox spacing="15" alignment="CENTER">
+            <!-- Start/Stop Button -->
+            <Button fx:id="startButton" text="Start" onAction="#onStartButtonClicked" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-background-color: green; -fx-text-fill: white; -fx-pref-width: 100;" />
+            <!-- Reset Button -->
+            <Button fx:id="resetButton" text="Reset" onAction="#onResetButtonClicked" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-background-color: #7289da; -fx-text-fill: white; -fx-pref-width: 100;" />
          </HBox>
 
-         <!-- Footer -->
-         <Text text="© MicroFit 2024" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 12px; -fx-fill: #b9bbbe;" />
+         <!-- Instellingenknop -->
+         <Button fx:id="settingsButton" text="Instellingen" onAction="#goToSettings" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-background-color: #7289da; -fx-text-fill: white;" />
       </VBox>
-
-      <!-- Instellingen-knop rechtsboven -->
-      <Button fx:id="settingsButton" text="⚙" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px;" onAction="#goToSettings" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10" />
-
-      <!-- Footer Region -->
-      <Region prefHeight="40" style="-fx-background-color: #2f3136;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
    </children>
 </AnchorPane>
