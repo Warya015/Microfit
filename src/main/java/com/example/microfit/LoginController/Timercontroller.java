@@ -1,78 +1,75 @@
 package com.example.microfit.LoginController;
 
-import javafx.animation.AnimationTimer;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 
 public class Timercontroller {
 
     @FXML
+    private Text timerMinutes; // Het minuten-display in de cirkel
+
+    @FXML
     private Button startButton;
+
     @FXML
     private Button resetButton;
-    @FXML
-    private Text timerMinutes;
+
     @FXML
     private Circle timerCircle;
 
-    private int totalSeconds = 1800; // 30 minuten in seconden
-    private int currentSeconds = totalSeconds;
-
-    private AnimationTimer timer;
+    private Timeline timeline;
+    private int timeInSeconds = 1800; // 30 minuten standaard
 
     @FXML
     public void initialize() {
+        // Zorg dat de tekst correct weergegeven wordt bij het laden
         updateTimerDisplay();
-        updateCircle();
     }
 
     @FXML
     private void onStartButtonClicked() {
-        if (timer != null) {
-            timer.stop(); // Stop een bestaande timer
+        if (timeline == null || timeline.getStatus() != Animation.Status.RUNNING) {
+            startTimer();
         }
-
-        timer = new AnimationTimer() {
-            private long lastUpdate = 0;
-
-            @Override
-            public void handle(long now) {
-                if (lastUpdate == 0 || now - lastUpdate >= 1_000_000_000) { // 1 seconde
-                    if (currentSeconds > 0) {
-                        currentSeconds--;
-                        updateTimerDisplay();
-                        updateCircle();
-                    } else {
-                        timer.stop();
-                        System.out.println("Timer voltooid!");
-                    }
-                    lastUpdate = now;
-                }
-            }
-        };
-        timer.start();
     }
 
     @FXML
     private void onResetButtonClicked() {
-        if (timer != null) {
-            timer.stop();
-        }
-        currentSeconds = totalSeconds;
+        stopTimer();
+        timeInSeconds = 1800; // Reset naar 30 minuten
         updateTimerDisplay();
-        updateCircle();
+    }
+
+    private void startTimer() {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            timeInSeconds--;
+            updateTimerDisplay();
+
+            if (timeInSeconds <= 0) {
+                stopTimer();
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
+    private void stopTimer() {
+        if (timeline != null) {
+            timeline.stop();
+        }
     }
 
     private void updateTimerDisplay() {
-        int minutes = currentSeconds / 60;
-        int seconds = currentSeconds % 60;
-        timerMinutes.setText(String.format("%02d:%02d", minutes, seconds));
-    }
+        int minutes = timeInSeconds / 60;
+        int seconds = timeInSeconds % 60;
 
-    private void updateCircle() {
-        double progress = (double) currentSeconds / totalSeconds;
-        timerCircle.setStrokeDashOffset(-progress * 628.0); // 2 * Math.PI * 100 (radius van cirkel)
+        // Werk de minuten bij en toon een passend formaat
+        timerMinutes.setText(String.format("%02d:%02d", minutes, seconds));
     }
 }

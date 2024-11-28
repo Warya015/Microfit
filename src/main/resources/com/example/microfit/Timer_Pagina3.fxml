@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Pos?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.Timercontroller" style="-fx-background-color: #1e1e2f;">
    <children>
-      <!-- MicroFit logo tekst -->
-      <Text fill="#ffffff" layoutX="110.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MicroFit" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 40px;">
-         <font>
-            <Font name="Roboto Bold" size="36.0" />
-         </font>
-      </Text>
+      <!-- Hoofdcontainer: VBox met ruimte en centering instellingen -->
+      <VBox spacing="20" alignment="CENTER" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10">
 
-      <!-- Timer cirkel -->
-      <Circle fx:id="timerCircle" fill="transparent" stroke="#7289da" strokeWidth="10" layoutX="167.0" layoutY="263.0" radius="100.0" strokeDashArray="628.0" />
+         <!-- Logo -->
+         <Text text="MicroFit" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 40px; -fx-fill: #ffffff;" />
 
-      <!-- Tijd in minuten en seconden -->
-      <Text fx:id="timerMinutes" fill="#ffffff" layoutX="115.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="30:00" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 64px;">
-         <font>
-            <Font name="Roboto Bold" size="64.0" />
-         </font>
-      </Text>
+         <!-- Timer Titel -->
+         <Text text="Timer" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 32px; -fx-fill: #ffffff;" />
 
-      <!-- Footer -->
-      <Text fill="#b9bbbe" layoutX="110.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="© MicroFit 2024" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 12px;" />
+         <!-- Timer Cirkel en Tijd -->
+         <StackPane alignment="CENTER">
+            <!-- Timer Cirkel -->
+            <Circle fx:id="timerCircle" fill="transparent" stroke="#7289da" strokeWidth="10" radius="100" />
+            <!-- Tijd -->
+            <VBox alignment="CENTER" spacing="5">
+               <Text fx:id="timerMinutes" text="30" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 64px; -fx-fill: #ffffff;" />
+               <Text text="min" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-fill: #b9bbbe;" />
+            </VBox>
+         </StackPane>
 
-      <!-- Start-knop -->
-      <Button fx:id="startButton" layoutX="70.0" layoutY="453.0" mnemonicParsing="false" text="Start" style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="100" onAction="#onStartButtonClicked" />
+         <!-- Knoppen: Start en Reset -->
+         <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="startButton" text="Start" style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="100" onAction="#onStartButtonClicked" />
+            <Button fx:id="resetButton" text="Reset" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="100" onAction="#onResetButtonClicked" />
+         </HBox>
 
-      <!-- Reset-knop -->
-      <Button fx:id="resetButton" layoutX="170.0" layoutY="453.0" mnemonicParsing="false" text="Reset" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="100" onAction="#onResetButtonClicked" />
+         <!-- Footer -->
+         <Text text="© MicroFit 2024" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 12px; -fx-fill: #b9bbbe;" />
+      </VBox>
+
+      <!-- Footer Region -->
+      <Region prefHeight="40" style="-fx-background-color: #2f3136;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
    </children>
 </AnchorPane>
