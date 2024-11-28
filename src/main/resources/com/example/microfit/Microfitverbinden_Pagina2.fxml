@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #1e1e2f;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.InstellingenController">
 
+   <!-- Hoofd container (VBox) voor layout -->
+   <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button layoutX="62.0" layoutY="415.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="210.0" text="Activeer" />
-      <ComboBox layoutX="84.0" layoutY="355.0" prefHeight="30.0" prefWidth="166.0" promptText="Selecteer je Microfit" />
-      <Text fill="#336dff" layoutX="14.0" layoutY="53.0" stroke="#336dff" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="2.0" text="MicroFit" wrappingWidth="166.4000000000001">
-         <font>
-            <Font name="System Bold Italic" size="36.0" />
-         </font>
-      </Text>
-      <Text layoutX="105.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verbind je MicroFit" wrappingWidth="124.23226165771484" />
-   </children>
+      <!-- Titel van de MicroFit Pagina -->
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 32px; -fx-fill: #ffffff;" text="MicroFit" />
+
+      <!-- Informatie voor het Verbinden van MicroFit -->
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: #b9bbbe;" text="Verbind je MicroFit door het juiste apparaat te selecteren." wrappingWidth="300" />
+
+      <!-- ComboBox voor het selecteren van MicroFit -->
+      <ComboBox layoutX="84.0" layoutY="355.0" prefHeight="30.0" prefWidth="166.0" promptText="Selecteer je Microfit" style="-fx-background-color: #2b2d42; -fx-font-size: 14px; -fx-text-fill: white; -fx-background-radius: 5px;" />
+
+      <!-- Button voor Activeren van MicroFit -->
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #7289da; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Activeer" />
+
+      <!-- Waarschuwingsbericht (optioneel) -->
+      <Text style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 12px; -fx-fill: #ff0000;" text="Wees zeker dat je het juiste MicroFit-apparaat selecteert." />
+
+      <!-- Terug Knop (with fx:id and onAction bound to controller method) -->
+      <Button maxWidth="350" prefWidth="300" style="-fx-background-color: #4a4a4a; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" text="Terug" fx:id="terugButton" onAction="#handleTerugButton" />
+
+   </VBox>
 </AnchorPane>
