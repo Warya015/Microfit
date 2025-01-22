@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Pos?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.microfit.LoginController.createAccount" style="-fx-background-color: #1e1e2f;" prefHeight="600.0" prefWidth="335.0">
+    <children>
+        <!-- Hoofdcontainer: VBox met ruimte en centering instellingen -->
+        <VBox spacing="20" alignment="CENTER" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10">
+
+            <!-- Logo -->
+            <Text text="MicroFit" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 40px; -fx-fill: #ffffff;" />
+
+            <!-- Pagina Titel -->
+            <Text text="Maak een account" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 32px; -fx-fill: #ffffff;" />
+
+            <!-- Create Account Form -->
+            <VBox spacing="15" alignment="CENTER">
+                <TextField fx:id="usernameField" promptText="Gebruikersnaam" style="-fx-background-color: #2b2d42; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="300" />
+                <PasswordField fx:id="passwordField" promptText="Wachtwoord" style="-fx-background-color: #2b2d42; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" prefWidth="300" />
+
+                <!-- Password Strength Indicator -->
+                <ProgressBar fx:id="passwordStrengthBar" prefWidth="300" progress="0" style="-fx-accent: #f44336;"/>
+                <Label fx:id="passwordStrengthLabel" text="Sterkte: Zwak" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-fill: red;" />
+            </VBox>
+
+            <!-- Error Label -->
+            <Label fx:id="errorLabel" textFill="RED" style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 14px; -fx-opacity: 0;" />
+
+            <!-- Create Account Knop -->
+            <Button fx:id="registerButton" text="Account aanmaken" style="-fx-background-color: #7289da; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" onAction="#handleRegister" prefWidth="300" maxWidth="350" />
+
+            <!-- Terug naar login knop -->
+            <Button fx:id="backToLoginButton" text="Terug naar login" style="-fx-background-color: #7289da; -fx-text-fill: white; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 10;" onAction="#handleBackToLogin" prefWidth="300" maxWidth="350" />
+        </VBox>
+
+        <!-- Footer -->
+        <Region prefHeight="40" style="-fx-background-color: #2f3136;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+    </children>
+</AnchorPane>

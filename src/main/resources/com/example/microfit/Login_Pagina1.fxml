@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Pos?>
 
@@ -30,13 +29,16 @@
 
          <!-- Hyperlinks -->
          <VBox spacing="10" alignment="CENTER">
-            <Hyperlink text="of maak een nieuw account aan" style="-fx-text-fill: #b9bbbe; -fx-font-family: 'Roboto', sans-serif;" />
-            <Hyperlink text="Wachtwoord vergeten?" style="-fx-text-fill: #b9bbbe; -fx-font-family: 'Roboto', sans-serif;" />
+            <Hyperlink fx:id="createAccountHyperlink"
+                       text="of maak een nieuw account aan"
+                       style="-fx-text-fill: #b9bbbe; -fx-font-family: 'Roboto', sans-serif;"
+                       onAction="#handleCreateAccount" />
+            <Hyperlink text="Wachtwoord vergeten?"
+                       style="-fx-text-fill: #b9bbbe; -fx-font-family: 'Roboto', sans-serif;" />
          </VBox>
       </VBox>
 
       <!-- Footer -->
       <Region prefHeight="40" style="-fx-background-color: #2f3136;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
-
    </children>
 </AnchorPane>

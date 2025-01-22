@@ -28,21 +28,23 @@ public class LoginController {
     @FXML
     private Button loginButton;
 
+    @FXML
+    private Button createAccountButton; // Voeg een knop toe voor "Account aanmaken"
+
     // Deze methode wordt uitgevoerd wanneer de gebruiker op de "Log in" knop klikt
     @FXML
     public void handleLogin() {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        // Controleer de inloggegevens voor de tijdelijke gebruikers
-        if (username.equals("Abdi") && password.equals("Abdi123")) {
-            // Als login succesvol is voor Abdi, laad Timer_Pagina3.fxml
+        // Controleer of de inloggegevens bestaan in de lokale database
+        if (createAccount.authenticate(username, password)) {
+            // Succesvolle login, laadt een voorbeeldpagina
             loadPage("/com/example/microfit/Timer_Pagina3.fxml");
 
         } else if (username.equals("Gabe") && password.equals("Gabe123")) {
-            // Als login succesvol is voor Gabe, controleer of hij beheerder is
+            // Specifieke case voor Gabe als beheerder
             if (isAdmin(username)) {
-                // Gabe is een beheerder, laad Beheer_Pagina5.fxml
                 loadPage("/com/example/microfit/Beheer_Pagina5.fxml");
             } else {
                 showErrorAlert("Toegang geweigerd", "Je hebt geen beheerdersrechten.");
@@ -52,6 +54,12 @@ public class LoginController {
             // Als login niet succesvol is, toon een foutmelding
             showErrorAlert("Inloggen mislukt", "De gebruikersnaam of het wachtwoord is onjuist.");
         }
+    }
+
+    // Methode voor navigatie naar de Create Account-pagina
+    @FXML
+    public void handleCreateAccount() {
+        loadPage("/com/example/microfit/CreateAccount.fxml");
     }
 
     // Methode om te controleren of de gebruiker een beheerder is
@@ -66,11 +74,9 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pagePath));
             AnchorPane root = loader.load();
 
-            // Maak een nieuwe Scene met de geladen FXML
-            Scene scene = new Scene(root);
-
-            // Verkrijg de huidige Stage (window)
+            // Verkrijg de huidige Stage (window) via de Button
             Stage stage = (Stage) loginButton.getScene().getWindow();
+            Scene scene = new Scene(root); // Maak een nieuwe Scene
             stage.setScene(scene); // Zet de nieuwe scene
             stage.show(); // Toon de nieuwe scene
 
